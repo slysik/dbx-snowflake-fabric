@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/slysik/dbx-snowflake-fabric/schemas/skill-learning.schema.json",
+  "title": "Skill learning event",
+  "type": "object",
+  "required": ["schema_version", "id", "timestamp_utc", "skill", "event", "severity", "summary", "status"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "id": { "type": "string", "minLength": 8 },
+    "timestamp_utc": { "type": "string" },
+    "skill": { "type": "string", "minLength": 1 },
+    "event": { "enum": ["learning", "failure", "friction", "success", "suggestion"] },
+    "severity": { "enum": ["low", "medium", "high"] },
+    "summary": { "type": "string", "minLength": 1 },
+    "detail": { "type": "string" },
+    "source_task": { "type": "string" },
+    "artifacts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "agent": { "type": "string" },
+    "status": { "enum": ["candidate", "approved", "rejected", "promoted"] }
+  },
+  "additionalProperties": true
+}

@@ -37,9 +37,10 @@ for dir in "$@"; do
     no "MCP referenced without negation (CLI-first/MCP-never)"
   else ok "MCP-never"; fi
 
-  # referenced sub-docs resolve
+  # referenced sub-docs resolve (capture optional ../ and cross-skill segments,
+  # resolve relative to the skill dir so cross-skill links aren't false-flagged)
   missing=0
-  for ref in $(grep -oE 'references/[A-Za-z0-9._/-]+\.md' "$md" | sort -u); do
+  for ref in $(grep -oE '(\.\./)*([A-Za-z0-9._-]+/)*references/[A-Za-z0-9._-]+\.md' "$md" | sort -u); do
     [ -f "$dir/$ref" ] || { no "broken ref: $ref"; missing=1; }
   done
   [ "$missing" = 0 ] && ok "references resolve"

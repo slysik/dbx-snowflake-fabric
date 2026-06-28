@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/open-skills-cli-slide.png" alt="Open Skills CLI slide for Databricks, Snowflake, and Microsoft Fabric + Foundry" width="100%" />
+
 # Databricks · Microsoft Fabric · Snowflake — Agent Skills
 
 **78 production skills** that turn Claude Code, Codex, or pi into a data-platform engineer.
@@ -30,8 +32,8 @@ just install-open-skills
 
 ```bash
 # with just from a local clone
-just install-databricks-ai         # Databricks skills into Codex
-just install-snowflake-ai          # Snowflake skills into Codex
+just install-databricks            # Databricks skills into Codex
+just install-snowflake             # Snowflake skills into Codex
 just install-microsoft-ai          # Microsoft Fabric + Foundry skills into Codex
 
 # generic just form also works

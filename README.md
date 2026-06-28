@@ -22,7 +22,10 @@ Build everything on **Databricks, Snowflake, and Microsoft Fabric** through CLIs
 
 ## ⚡ Install in one step
 
-Installs **all 78 skills** into Claude Code:
+Each install command copies skills into **one** harness. It does **not**
+automatically make them available in all three tools at once.
+
+Installs **all 78 skills** into Codex:
 
 ```bash
 just install-open-skills
@@ -36,13 +39,14 @@ just install-databricks            # Databricks skills into Codex
 just install-snowflake             # Snowflake skills into Codex
 just install-microsoft-ai          # Microsoft Fabric + Foundry skills into Codex
 
-# generic just form also works
-just install databricks-ai
-just install snowflake-ai
-just install microsoft-ai
+# choose a different harness explicitly
+just install -- --harness claude --platform databricks
+just install -- --harness pi --platform snowflake
 
-# one platform
-just install-platform snowflake
+# generic just form also works for local installs
+just install -- --platform databricks-ai
+just install -- --platform snowflake-ai
+just install -- --platform microsoft-ai
 
 # a single skill
 just install databricks-genie
